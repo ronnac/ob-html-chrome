@@ -48,13 +48,13 @@
 	  (or (cdr (assoc :file processed-params)) ; :file arg
 	      (nth 4 (org-babel-get-src-block-info)) ; #+NAME of block
 	      (s-dashed-words (nth 4 (org-heading-components))))) ; Heading
-	 (out-file (concat out-file-base ".png"))
+	 (out-file out-file-base)
 	 (flags (cdr (assoc :flags processed-params)))
 	 (cmd (s-join
 	       " "
 	       `(,(shell-quote-argument
 		   org-babel-html-chrome-chrome-executable)
-		 ,@'("--headless" "--disable-gpu" "--enable-logging")
+		 ,@'("--headless=old" "--disable-gpu" "--enable-logging")
 		 ,flags
 		 ,(format "--screenshot=%s"
 			  (org-babel-process-file-name out-file))
