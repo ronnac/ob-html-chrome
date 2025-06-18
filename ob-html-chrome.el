@@ -54,7 +54,7 @@
 	       " "
 	       `(,(shell-quote-argument
 		   org-babel-html-chrome-chrome-executable)
-		 ,@'("--headless=old" "--disable-gpu" "--enable-logging")
+		 ,@'("--headless=new" "--disable-gpu" "--enable-logging")
 		 ,flags
 		 ,(format "--screenshot=%s"
 			  (org-babel-process-file-name out-file))
